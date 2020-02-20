@@ -41,7 +41,7 @@ print (letters)
 letters[2:4] =[] #clearing list for position 2,3
 print (letters)
 
-
+'''
 x = int ( input (" Please Enter a number/integer: "))
 if x <0:
     x = 0
@@ -52,7 +52,7 @@ elif x == 1:
     print ('One')
 else: #else statment doesn't need to be defined, as it will be the case if all-else fails, no pun intended
     print ('More than one')
-
+'''
 
 a,b = 0,1
 while a<100: #executes as long as the condition remains true 
@@ -62,3 +62,22 @@ while a<100: #executes as long as the condition remains true
 words = ['wolf', 'panda', 'whale']
 for w in words:
     print (w, len(w))
+
+
+''' Need to fix the below code
+
+users = ['jesse', 'sean','william']
+
+for user, status in users.copy().items():
+    if status == 'inactive':
+        del users[user]
+
+acitve_users = {}
+for user, status in users.items():
+    if status == 'active':
+        active_users[user]=status
+
+'''
+
+for i in range(8):
+    print (i)
