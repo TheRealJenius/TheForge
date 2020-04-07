@@ -817,7 +817,7 @@ def mean(num_list):
 '''
 mean = lambda num_list: sum(num_list) / len(num_list)
 
-averages = list(map(mean, numbers))
+averages = list(map(mean, numbers)) #map is a higher order function
 print(averages)
 
 
@@ -830,7 +830,7 @@ def is_short(name):
 '''
 is_short = lambda name: len(name) < 10
 
-short_cities = list(filter(is_short, cities))
+short_cities = list(filter(is_short, cities)) # filter is a higher order function
 print(short_cities)
 
 
@@ -849,3 +849,83 @@ cities = ["New York City", "Los Angeles", "Chicago", "Mountain View", "Denver", 
 
 short_cities = list(filter(lambda x: len(x) < 10, cities))
 print(short_cities)
+
+
+
+lessons = ["Why Python Programming", "Data Types and Operators", "Control Flow", "Functions", "Scripting"]
+
+def my_enumerate(iterable, start=0):
+    # Implement your generator function here
+    x = start
+    y = iterable
+    pos = 0
+    while x < (start + len(iterable)):
+        yield x, y[pos]
+        x += 1
+        pos += 1
+
+for i, lesson in my_enumerate(lessons, 1):
+    print("Lesson {}: {}".format(i, lesson))
+
+
+
+    #### their answer:
+lessons = ["Why Python Programming", "Data Types and Operators", "Control Flow", "Functions", "Scripting"]
+
+def my_enumerate(iterable, start=0):
+    count = start
+    for element in iterable:
+        yield count, element
+        count += 1
+
+for i, lesson in my_enumerate(lessons, 1):
+    print("Lesson {}: {}".format(i, lesson))
+
+
+def chunker(iterable, size):
+    # Implement function here
+    x = 0
+    c = 0
+    chunky = []
+    ckey = {}
+    while x < len(iterable):
+        y = 0
+        while y < size and x < len(iterable):
+            chunky.append(iterable[x])
+            y += 1
+            x += 1
+        ckey[c] = chunky
+        yield ckey.get(c)
+        c +=1
+        chunky = []
+        
+for chunk in chunker(range(25), 4):
+    print(list(chunk))
+
+
+####thier answer
+def chunker(iterable, size):
+    """Yield successive chunks from iterable of length size."""
+    for i in range(0, len(iterable), size):
+        yield iterable[i:i + size]
+
+for chunk in chunker(range(25), 4):
+    print(list(chunk))
+
+
+how_many_snakes = 1
+snake_string = """
+Welcome to Python3!
+
+             ____
+            / . .\\
+            \  ---<
+             \  /
+   __________/ /
+-=:___________/
+
+<3, Juno
+"""
+
+
+print(snake_string * how_many_snakes)    
