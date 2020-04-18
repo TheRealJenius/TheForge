@@ -8,3 +8,9 @@ X = np.ones((4,4))
 Y = np.array([0,1,2,3])
 X = X+Y
 print(X)
+
+
+
+### Their solution:
+X = np.ones((4,4)) * np.arange(1,5)
+print(X)
